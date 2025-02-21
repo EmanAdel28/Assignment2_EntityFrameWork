@@ -46,13 +46,22 @@ namespace Assignment2_EntityFrameWork
 
             Console.WriteLine(student);
             #endregion
-            #region UpdateData
+
+            #region Update Data
             Console.WriteLine(dbContext.Entry(student).State);
 
             student.Age = 24;
             dbContext.SaveChanges();
+            Console.WriteLine(dbContext.Entry(student).State);
+            #endregion
+
+            #region Delete Data
+
+            dbContext.Students.Remove(student);
+            dbContext.SaveChanges();
             Console.WriteLine(dbContext.Entry(student).State); 
             #endregion
+
 
 
 
