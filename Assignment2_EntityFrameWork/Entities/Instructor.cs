@@ -27,8 +27,8 @@ namespace Assignment2_EntityFrameWork.Entities
         public Department DeptInstructor { get; set; }
 
 
-        ////// ONE TO ONE Department
-        //[InverseProperty("Instructor")]
-        //public Department InstructorManager { get; set; }
+        //// ONE TO ONE Department
+        [InverseProperty("Instructor")]
+        public Department InstructorManager { get; set; }
     }
 }

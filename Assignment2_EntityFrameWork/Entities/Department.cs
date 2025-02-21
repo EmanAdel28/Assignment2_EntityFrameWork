@@ -31,9 +31,9 @@ namespace Assignment2_EntityFrameWork.Entities
         [InverseProperty("DeptInstructor")]
         public ICollection<Instructor> Instructors { get; set; } = new HashSet<Instructor>();
 
-        //// ONE TO ONE Instructors
-        //[InverseProperty("InstructorManager")]
-        //public Instructor Instructor { get; set; }
+        // ONE TO ONE Instructors
+        [InverseProperty("InstructorManager")]
+        public Instructor Instructor { get; set; }
 
 
 
