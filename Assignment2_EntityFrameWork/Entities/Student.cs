@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,11 @@ namespace Assignment2_EntityFrameWork.Entities
 
         [Range(18, 27)]
         public int? Age { get; set; }
+
+        [ForeignKey("Department")]
         public int? DeptId { get; set; }
+        [InverseProperty("Students")]
+        public Department Department { get; set; }
 
 
 

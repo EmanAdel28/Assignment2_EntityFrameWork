@@ -4,6 +4,7 @@ using Assignment2_EntityFrameWork.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assignment2_EntityFrameWork.Migrations
 {
     [DbContext(typeof(EnterpriceDBContext))]
-    partial class EnterpriceDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250221190721_OneToManyDepartmentWithInstructor")]
+    partial class OneToManyDepartmentWithInstructor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -86,10 +88,6 @@ namespace Assignment2_EntityFrameWork.Migrations
                         .HasColumnType("nvarchar(15)");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("Ins_ID")
-                        .IsUnique()
-                        .HasFilter("[Ins_ID] IS NOT NULL");
 
                     b.ToTable("Departments");
                 });
@@ -200,15 +198,6 @@ namespace Assignment2_EntityFrameWork.Migrations
                     b.ToTable("Topics");
                 });
 
-            modelBuilder.Entity("Assignment2_EntityFrameWork.Entities.Department", b =>
-                {
-                    b.HasOne("Assignment2_EntityFrameWork.Entities.Instructor", "Instructor")
-                        .WithOne("InstructorManager")
-                        .HasForeignKey("Assignment2_EntityFrameWork.Entities.Department", "Ins_ID");
-
-                    b.Navigation("Instructor");
-                });
-
             modelBuilder.Entity("Assignment2_EntityFrameWork.Entities.Instructor", b =>
                 {
                     b.HasOne("Assignment2_EntityFrameWork.Entities.Department", "DeptInstructor")
@@ -232,12 +221,6 @@ namespace Assignment2_EntityFrameWork.Migrations
                     b.Navigation("Instructors");
 
                     b.Navigation("Students");
-                });
-
-            modelBuilder.Entity("Assignment2_EntityFrameWork.Entities.Instructor", b =>
-                {
-                    b.Navigation("InstructorManager")
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
