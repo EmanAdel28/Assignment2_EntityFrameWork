@@ -32,6 +32,11 @@ namespace Assignment2_EntityFrameWork.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+            modelBuilder.Entity<Course>()
+                        .HasOne(T => T.Topic)
+                        .WithOne(C => C.Course)
+                        .OnDelete(DeleteBehavior.Cascade);
         }
 
 

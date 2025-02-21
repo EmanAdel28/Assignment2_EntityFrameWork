@@ -4,6 +4,7 @@ using Assignment2_EntityFrameWork.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assignment2_EntityFrameWork.Migrations
 {
     [DbContext(typeof(EnterpriceDBContext))]
-    partial class EnterpriceDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250221193308_OneToOneCourseWithTopic")]
+    partial class OneToOneCourseWithTopic
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
