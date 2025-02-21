@@ -10,23 +10,23 @@ namespace Assignment2_EntityFrameWork
             EnterpriceDBContext dbContext = new EnterpriceDBContext();
 
             #region Insert
-            //Student student1 = new Student()
-            //{
-            //    Fname = "Eman",
-            //    Lname = "Adel",
-            //    Address = "10 Of Ramadan",
-            //    Age = 23,
+            Student student1 = new Student()
+            {
+                Fname = "Eman",
+                Lname = "Adel",
+                Address = "10 Of Ramadan",
+                Age = 23,
 
-            //};
+            };
 
-            //Student student2 = new Student()
-            //{
-            //    Fname = "Amira",
-            //    Lname = "Adel",
-            //    Address = "Madent Badr",
-            //    Age = 23,
+            Student student2 = new Student()
+            {
+                Fname = "Amira",
+                Lname = "Adel",
+                Address = "Madent Badr",
+                Age = 23,
 
-            //};
+            };
 
             //dbContext.Students.Add(student1);
             //dbContext.Students.Add(student2);
@@ -39,13 +39,23 @@ namespace Assignment2_EntityFrameWork
             //Console.WriteLine(dbContext.Entry(student2).State);
             #endregion
 
-            #region RetriveData
+            #region RetriveDataFromStudentTable
             var student = (from st in dbContext.Students
-                           where st.Id == 1
+                           where st.Id == 2
                            select st).FirstOrDefault();
 
-            Console.WriteLine(student); 
+            Console.WriteLine(student);
             #endregion
+            #region UpdateData
+            Console.WriteLine(dbContext.Entry(student).State);
+
+            student.Age = 24;
+            dbContext.SaveChanges();
+            Console.WriteLine(dbContext.Entry(student).State); 
+            #endregion
+
+
+
 
 
         }
