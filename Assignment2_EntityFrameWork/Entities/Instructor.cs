@@ -21,10 +21,10 @@ namespace Assignment2_EntityFrameWork.Entities
         public decimal Salary { get; set; }
         public string Address { get; set; }
         public decimal HourRate { get; set; }
-        //[ForeignKey("DeptInstructor")]
-        //public int? Dept_ID { get; set; }
+        [ForeignKey("DeptInstructor")]
+        public int? Dept_ID { get; set; }
 
-        //public Department DeptInstructor { get; set; }
+        public Department DeptInstructor { get; set; }
 
 
         ////// ONE TO ONE Department
